@@ -12,6 +12,7 @@ const NewPost = ({
   bodyValue,
   loading,
   error,
+  children,
 }) => (
     <Form>
       <Input
@@ -37,6 +38,7 @@ const NewPost = ({
       >
         Send
       </Button>
+      {children}
     </Form>
   )
 

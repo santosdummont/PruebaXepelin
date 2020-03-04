@@ -24,6 +24,7 @@ class Posts extends React.Component {
       selectedPost: false,
       loading: false,
       error: false,
+      errorMessage: false,
     }
   }
 
@@ -64,6 +65,7 @@ class Posts extends React.Component {
       .catch(error => {
         this.setState({
           loading: false,
+          errorMessage: "An error has ocurred, please try again",
         })
       })
   }
@@ -77,7 +79,10 @@ class Posts extends React.Component {
       })
       return this.onSubmitNewPost(this.state.newPost);
     }
-    return this.setState({ error: true })
+    return this.setState({
+      error: true,
+      errorMessage: 'Please complete all fields'
+    })
   }
 
   toggleSections = (e) => {
@@ -98,15 +103,15 @@ class Posts extends React.Component {
         this.setState({
           visibleSection: 'listPosts',
         })
-      } )
+      })
   }
 
   onClickPost = (id) => {
-    this.fetchPost(id);
     this.setState({
       visibleSection: 'post',
       selectedPost: false,
     })
+    this.fetchPost(id);
   }
 
   onChangeNewPost = (e) => {
@@ -115,7 +120,8 @@ class Posts extends React.Component {
         newPost: {
           ...this.state.newPost,
           title: e.target.value,
-        }
+        },
+        errorMessage: false,
       })
     }
     if (e.target.name === 'body') {
@@ -123,7 +129,8 @@ class Posts extends React.Component {
         newPost: {
           ...this.state.newPost,
           body: e.target.value
-        }
+        },
+        errorMessage: false,
       })
     }
     return this.state.newPost;
@@ -139,9 +146,9 @@ class Posts extends React.Component {
       loading,
       error,
       selectedPost,
+      errorMessage,
     } = this.state;
 
-    console.log(this.state.newPost);
     return (
       <React.Fragment>
         <div className={styles.container}>
@@ -173,7 +180,10 @@ class Posts extends React.Component {
                 onSubmit={this.onClickNewPost}
                 loading={loading}
                 error={error}
-              />
+              >
+                {errorMessage}
+              </NewPost>
+
             </Section>
           }
           {visibleSection === 'listPosts' &&
@@ -186,7 +196,7 @@ class Posts extends React.Component {
                   onClick={() => this.onClickPost(post.id)}
                 >
                 </Post>
-              )) : 'cargando'}
+              )) : <Loading />}
             </Section>
           }
 
