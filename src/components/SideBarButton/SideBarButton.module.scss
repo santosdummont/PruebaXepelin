@@ -1,0 +1,35 @@
+.button {
+  background: white;
+  border:0;
+  border-right: 2px solid white;
+  border-bottom: var(--light-border);
+  padding: 15px 20px;
+  text-align: left;
+  color: var(--default-color);
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3px;
+    content: '';
+    background-color: var(--primary-color);
+  }
+
+  &:hover {
+    background: var(--light-color-hover);
+  }
+
+  &:first-child {
+    border-top-left-radius: var(--default-border-radius);
+    border-top-right-radius: var(--default-border-radius);
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    border-bottom-left-radius: var(--default-border-radius);
+    border-bottom-right-radius: var(--default-border-radius);
+  }
+}

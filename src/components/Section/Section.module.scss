@@ -1,0 +1,10 @@
+.sectionContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
