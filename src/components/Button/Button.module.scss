@@ -7,7 +7,7 @@
   text-align: center;
   cursor: pointer;
   transition: var(--default-transition);
-
+  width: fit-content;
   &:hover {
     background: var(--primary-color-hover);
   }

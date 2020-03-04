@@ -1,0 +1,17 @@
+.postContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    background: white;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.infoBar {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}

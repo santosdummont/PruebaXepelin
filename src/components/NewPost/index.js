@@ -2,29 +2,41 @@ import React from 'react';
 import Input from '../Input';
 import Textarea from '../Textarea';
 import Button from '../Button';
-import Card from '../Card';
 import Form from '../Form';
-import styles from './NewPost.module.scss';
+
 
 const NewPost = ({
-  onClick,
-  onChangeTitle,
-  onChangeMessage,
+  onSubmit,
+  onChange,
   titleValue,
-  messageValue,
+  bodyValue,
+  loading,
+  error,
 }) => (
     <Form>
       <Input
         label="Title"
-        onChange={onChangeTitle}
-        value={titleValue}
+        name="title"
+        onChange={onChange}
+        value={titleValue || ''}
+        disabled={loading}
+        error={(error && !titleValue) ? error : null}
       />
       <Textarea
         label="Message"
-        onChange={onChangeMessage}
-        value={messageValue}
+        name="body"
+        onChange={onChange}
+        value={bodyValue}
+        disabled={loading}
+        error={(error && !bodyValue) ? error : null}
       />
-      <Button onClick={onClick}>Send</Button>
+      <Button
+        onClick={onSubmit}
+        loading={loading}
+        disabled={loading}
+      >
+        Send
+      </Button>
     </Form>
   )
 

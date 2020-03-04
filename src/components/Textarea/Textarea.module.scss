@@ -5,11 +5,20 @@
 
   .label {
     font-weight: var(--bold-font-weight);
+    
+    .errorIcon {
+      color: var(--primary-color);
+    }
   }
 
   .textarea {
     padding: 20px;
     border-radius: var(--default-border-radius);
     border: var(--default-border);
+
+    &.error {
+      border-color: var(--error-color);
+      background: var(--error-bg);
+    }
   }
 }

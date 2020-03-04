@@ -7,12 +7,22 @@ const Input = ({
   label,
   onChange,
   value,
+  name,
+  disabled,
+  error,
 }) => (
     <div className={styles.container}>
       {label &&
-        <div className={styles.label}>{label}</div>
+        <div className={styles.label}>{label} {error && <span className={styles.errorIcon}>*</span>}</div>
       }
-      <input onChange={onChange} className={styles.input} value={value} />
+      <input
+        disabled={disabled}
+        name={name}
+        type="text"
+        onChange={onChange}
+        className={`${styles.input} ${error && styles.error}`}
+        value={value}
+      />
     </div>
 
   )

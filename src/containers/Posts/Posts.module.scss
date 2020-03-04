@@ -5,23 +5,8 @@
     grid-auto-rows: min-content;
 
     .sidebar {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 20px;
-      grid-auto-rows: min-content;
       position: sticky;
       top: 40px;
       max-height: 100vh;
-
-      button {
-        border: 0;
-        border-radius:  6px;
-        padding: 10px;
-
-        &.active {
-          background: teal;
-          color: white;
-        }
-      }
     }
 }

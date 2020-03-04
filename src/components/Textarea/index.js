@@ -7,12 +7,25 @@ const Textarea = ({
   label,
   onChange,
   value,
+  name,
+  disabled,
+  error,
 }) => (
     <div className={styles.container}>
       {label &&
-        <div className={styles.label}>{label}</div>
+        <div className={styles.label}>
+         {label}
+         {error && <span className={styles.errorIcon}>*</span>}
+        </div>
       }
-      <textarea onChange={onChange} className={styles.textarea} value={value} />
+      <textarea
+        disabled={disabled}
+        name={name}
+        onChange={onChange}
+        className={`${styles.textarea} ${error && styles.error}`}
+        value={value}
+      >
+      </textarea>
     </div>
 
   )
