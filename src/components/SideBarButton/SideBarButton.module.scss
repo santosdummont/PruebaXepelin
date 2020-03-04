@@ -8,7 +8,7 @@
   color: var(--default-color);
   position: relative;
 
-  &:after {
+  &.active:after {
     position: absolute;
     top: 0;
     right: 0;

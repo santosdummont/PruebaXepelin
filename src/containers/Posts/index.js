@@ -55,12 +55,12 @@ class Posts extends React.Component {
         <div className={styles.container}>
           <SideBar>
             <SideBarButton
-              isActive={visibleSection === 'New post'}
+              isActive={visibleSection === 'newPost'}
               onClick={() => this.toggleSections('newPost')}
               text="New Post"
             />
             <SideBarButton
-              isActive={visibleSection === 'List posts'}
+              isActive={visibleSection === 'listPosts'}
               onClick={() => this.toggleSections('listPosts')}
               text="List posts"
             />
@@ -73,7 +73,7 @@ class Posts extends React.Component {
           }
           {visibleSection === 'listPosts' &&
             <Section title="List posts" >
-              {posts && posts.map((post, index) => (
+              {posts ? posts.map((post, index) => (
                 <Post
                   key={index}
                   title={post.title}
@@ -81,7 +81,7 @@ class Posts extends React.Component {
                   onClick={() => this.onPostClick(post.userId, post.id)}
                 >
                 </Post>
-              ))}
+              )) : 'cargando'}
             </Section>
           }
         </div>

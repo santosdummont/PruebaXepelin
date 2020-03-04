@@ -5,12 +5,12 @@ import styles from './SideBarButton.module.scss';
 const SideBarButton = ({
   onClick,
   text,
-  active,
+  isActive,
 }) => (
     <button
       className={`
           ${styles.button} 
-          ${active && styles.active}
+          ${isActive && styles.active}
           `}
       onClick={onClick}>
       {text}
